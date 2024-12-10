@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="createInstrumentPost.php" method="POST">
+        <input type="text" name="nombre" placeholder="nombre">
+        <input type="text" name="descr" placeholder="descr">
+        <input type="text" name="modelo" placeholder="modelo">
+        <input type="text" name="marca" placeholder="marca">
+        <input type="text" name="tipo" placeholder="tipo">
+        <input type="text" name="imagen" placeholder="imagen">
+        <button type="submit">Subir Producto</button>
+    </form>
+</body>
+</html>
