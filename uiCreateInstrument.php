@@ -23,7 +23,7 @@
         }
 
         input{
-            border: 5px;
+            border-radius: 5px;
             text-indent: 8px;
             padding: 0.5rem 1rem;
         }
