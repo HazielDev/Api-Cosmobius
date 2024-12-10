@@ -21,6 +21,12 @@
             align-items: center;
             gap: 16px;
         }
+
+        input{
+            border: 5px;
+            text-indent: 8px;
+            padding: 0.5rem 1rem;
+        }
     </style>
 </head>
 <body>
