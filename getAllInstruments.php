@@ -10,13 +10,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     if (!$conn) {die("Error al conectar a la base de datos: " . mysqli_connect_error());}
     
 
-    $guitars = [];
+    $instrumento = [];
     $allInstrumento = $conn->prepare("SELECT * FROM Instrumento");
     if($allInstrumento->execute()){
         $intrumentoRes = $allInstrumento->get_result(); 
         if($intrumentoRes->num_rows > 0){
             while ($instrumento = $intrumentoRes->fetch_assoc()) {
-                $instrumento[] = $guitar;
+                $instrumento[] = $instrumento;
             }
             echo json_encode($instrumento);
         }else{
