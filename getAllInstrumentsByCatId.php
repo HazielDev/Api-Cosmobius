@@ -5,6 +5,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {die("Error al conectar a la base de datos: " . mysqli_connect_error());}
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    
+    header("Content-Type: application/json");
+
     $catID = $_GET['catId'];
     $getCats = $conn->prepare("SELECT * FROM Instrumento WHERE catId = ?");
     $getCats->bind_param("i",$catID);
