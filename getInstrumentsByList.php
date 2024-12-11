@@ -11,8 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     $instrumentos = [];
 
-    if (isset($_GET['ids'])) {
-        $ids = json_decode($_GET['ids'], true);
+    if (isset($_GET['favList'])) {
+        $ids = json_decode($_GET['favList'], true);
 
         if (is_array($ids) && count($ids) > 0) {
             $placeholders = implode(',', array_fill(0, count($ids), '?'));
