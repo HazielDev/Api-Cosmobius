@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     header("Content-Type: application/json");
 
     $instrumentos = [];
-    $allInstrumento = $conn->prepare("SELECT * FROM Instrumento ORDER BY id DESC LIMIT 3");
+    $allInstrumento = $conn->prepare("SELECT * FROM Instrumento ORDER BY RAND() LIMIT 3");
     if($allInstrumento->execute()){
         $intrumentoRes = $allInstrumento->get_result(); 
         if($intrumentoRes->num_rows > 0){
@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             }
             echo json_encode($instrumentos);
         }else{
-            echo json_encode(['message' => 'No se encontro a ningun instrumento']);
+            echo json_encode(['message' => 'No se encontro ningun instrumento']);
         }
     }
 }
