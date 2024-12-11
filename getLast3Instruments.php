@@ -1,5 +1,8 @@
 <?php 
 
+include 'Vars/default.php';
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {die("Error al conectar a la base de datos: " . mysqli_connect_error());}
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
     require_once 'default.php';
@@ -9,11 +12,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     header("Content-Type: application/json");
 
     $instrumentos = [];
-    $idInstrum = $_GET['idInstrum'];
-    $GetInstrumento = $conn->prepare("SELECT * FROM Instrumento WHERE id = ?");
-    $GetInstrumento->bind_param("i",$idInstrum);
-    if($GetInstrumento->execute()){
-        $intrumentoRes = $GetInstrumento->get_result(); 
+    $allInstrumento = $conn->prepare("SELECT * FROM Instrumento ORDER BY id DESC LIMIT 3");
+    if($allInstrumento->execute()){
+        $intrumentoRes = $allInstrumento->get_result(); 
         if($intrumentoRes->num_rows > 0){
             while ($instrumento = $intrumentoRes->fetch_assoc()) {
                 $instrumentos[] = $instrumento;
