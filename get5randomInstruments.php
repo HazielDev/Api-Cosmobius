@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     header("Content-Type: application/json");
 
     $instrumentos = [];
-    $allInstrumento = $conn->prepare("SELECT * FROM Instrumento ORDER BY RAND() LIMIT 3");
+    $allInstrumento = $conn->prepare("SELECT * FROM Instrumento ORDER BY RAND() LIMIT 5");
     if($allInstrumento->execute()){
         $intrumentoRes = $allInstrumento->get_result(); 
         if($intrumentoRes->num_rows > 0){
